@@ -2,11 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Nour Alkassar | Software Engineer Portfolio</title>
-    <meta name="title" content="Nour Alkassar | Software Engineer Portfolio" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nour Alkassar | Frontend Web Developer (React.js)</title>
+    <meta name="title" content="Nour Alkassar | Frontend Web Developer" />
     <meta
       name="description"
-      content="Software Engineering student at Damascus University. Specialized in React.js and UI/UX design."
+      content="Frontend Web Developer specializing in React.js, modern JavaScript, and clean architecture. Experienced in building scalable, role-based web applications."
     />
 
     <meta property="og:type" content="website" />
@@ -14,37 +15,39 @@
       property="og:url"
       content="https://nour-alkassar-portfolio.netlify.app/"
     />
-    <meta property="og:title" content="Nour Alkassar | Software Engineer" />
+    <meta
+      property="og:title"
+      content="Nour Alkassar | Frontend Web Developer"
+    />
     <meta
       property="og:description"
-      content="Explore my projects in Java, React, and Flutter."
+      content="Explore my projects in React.js, clean architecture, and scalable web applications."
     />
-    <meta
-      property="og:image"
-      content="https://nour-alkassar-portfolio.netlify.app/screenshot.png"
-    />
+
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:title"
-      content="Nour Alkassar | Software Engineer"
+      content="Nour Alkassar | Frontend Web Developer"
     />
-    <meta
-      property="twitter:description"
-      content="Software Engineering student and Front-end Developer."
-    />
-    <link rel="icon" type="image/png" href="public/favicon.png" />
+
+    <link rel="icon" type="image/png" href="public/favicon.jpg" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
     <div class="cursor-follow"></div>
     <header>
       <nav>
-        <div class="logo">Nour Al-kassar</div>
+        <div class="logo">Nour Alkassar</div>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
@@ -52,33 +55,55 @@
           <li><a href="#experience">Experience</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <a
-          href="https://drive.google.com/file/d/1SYjhHsNm1IjiR2by6_bwolEnGpD6lr11/view?usp=sharing"
-          class="btn-cv"
-          download
-          >Download CV</a
-        >
+
+        <div style="display: flex; align-items: center; gap: 15px">
+          <!-- زر تبديل الوضع -->
+          <button
+            id="theme-toggle"
+            class="theme-toggle-btn"
+            aria-label="Toggle Theme"
+          >
+            <i class="fas fa-moon"></i>
+          </button>
+
+          <a
+            href="https://drive.google.com/file/d/1IEuf3MTJ1jE2aBARjvfI0K0ixZmyvDsb/view?usp=sharing"
+            class="btn-cv"
+            download
+            >Download CV</a
+          >
+        </div>
       </nav>
     </header>
+
     <main>
+      <!-- Hero Section -->
       <section id="home" data-aos="fade-up" class="hero">
         <div class="hero-content">
           <div class="hero-text">
             <h6>Hello, I'm</h6>
             <h1 class="name-hover">Nour Alkassar</h1>
             <h3>
-              Front-end Developer -
-              <span class="badge">Senior Software Engineering Student</span>
+              Frontend Web Developer -
+              <span class="badge">Software Engineer</span>
             </h3>
             <p>
-              Specialized in building high-performance mobile and web
-              applications. Proficient in
-              <strong>Flutter, React.js, and JavaScript</strong>, with a strong
-              eye for design and UI/UX excellence to deliver scalable software
-              solutions.
+              Specialized in building scalable, role-based web applications
+              using
+              <strong>React.js</strong> and modern JavaScript. Adept at
+              translating complex UI/UX designs into responsive, reusable
+              components using clean architecture and efficient data-fetching
+              patterns.
             </p>
             <div class="hero-btns">
-              <button class="btn-main" onclick="scrollToSection('projects')">
+              <button
+                class="btn-main"
+                onclick="
+                  document
+                    .getElementById('projects')
+                    .scrollIntoView({ behavior: 'smooth' })
+                "
+              >
                 View Projects
               </button>
               <a href="#contact" class="btn-sub">Let's Talk</a>
@@ -93,51 +118,51 @@
         </div>
       </section>
 
+      <!-- About Section -->
       <section id="about" data-aos="fade-up" class="container">
         <h2 class="section-title">Professional Summary</h2>
         <div class="glass-card">
           <p class="about">
-            I am a 5th-year Software Engineering student at Damascus University
-            with a passion for frontend development. I combine technical
-            proficiency in <strong>Java, C#, and Dart</strong> with modern web
-            technologies like <strong>React.js and HTML5/CSS3</strong>. My focus
-            is on writing clean, maintainable code and using
-            <strong>Figma</strong>
-            to create user-centric designs that solve complex technical
-            challenges.
+            Frontend Web Developer with a strong foundation in software
+            engineering. Experienced in building comprehensive web applications
+            (such as automated clinic management systems) using clean
+            architecture. Possesses a well-rounded technical background
+            including backend integration (Laravel/MySQL) and enterprise
+            systems, enabling seamless full-stack collaboration and a deep
+            understanding of the entire software lifecycle.
           </p>
         </div>
       </section>
 
+      <!-- Tech Stack Slider -->
       <section id="tech-stack" data-aos="fade-up" class="container">
         <h2 class="section-title">Tech Stack</h2>
         <div class="tech-description">
           <p>
             I build scalable, high-performance
-            <span>frontend & mobile solutions</span> with a focus on UI/UX
-            excellence, clean architecture, and seamless API integrations.
+            <span>frontend solutions</span> with a focus on UI/UX excellence,
+            clean architecture, and seamless API integrations.
           </p>
         </div>
-
         <div class="slider">
           <div class="slide-track">
             <div class="slide html"><i class="fab fa-html5"></i> HTML5</div>
             <div class="slide css"><i class="fab fa-css3-alt"></i> CSS3</div>
             <div class="slide js"><i class="fab fa-js"></i> JavaScript</div>
             <div class="slide react"><i class="fab fa-react"></i> React.js</div>
-            <div class="slide flutter">
-              <i class="fas fa-mobile-alt"></i> Flutter
+            <div class="slide tailwind">
+              <i class="fas fa-wind"></i> Tailwind
             </div>
             <div class="slide git"><i class="fab fa-git-alt"></i> Git</div>
             <div class="slide figma"><i class="fab fa-figma"></i> Figma</div>
             <div class="slide java"><i class="fab fa-java"></i> Java</div>
-
+            <!-- Duplicate for infinite scroll effect -->
             <div class="slide html"><i class="fab fa-html5"></i> HTML5</div>
             <div class="slide css"><i class="fab fa-css3-alt"></i> CSS3</div>
             <div class="slide js"><i class="fab fa-js"></i> JavaScript</div>
             <div class="slide react"><i class="fab fa-react"></i> React.js</div>
-            <div class="slide flutter">
-              <i class="fas fa-mobile-alt"></i> Flutter
+            <div class="slide tailwind">
+              <i class="fas fa-wind"></i> Tailwind
             </div>
             <div class="slide git"><i class="fab fa-git-alt"></i> Git</div>
             <div class="slide figma"><i class="fab fa-figma"></i> Figma</div>
@@ -146,6 +171,7 @@
         </div>
       </section>
 
+      <!-- Skills Grid -->
       <section id="skills" data-aos="fade-up" class="container">
         <h2 class="section-title">Technical Skills</h2>
         <div class="skills-grid">
@@ -154,142 +180,155 @@
             <h3>Web Development</h3>
             <p>React.js, JavaScript (ES6+), HTML5, CSS3, Responsive Design.</p>
           </div>
-
           <div class="skill-card glass">
-            <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
-            <h3>Mobile Development</h3>
-            <p>
-              Flutter (Dart), Cross-platform Apps, Mobile UI Implementation.
-            </p>
+            <div class="skill-icon"><i class="fas fa-server"></i></div>
+            <h3>State & API Management</h3>
+            <p>React Query, Custom Hooks, RESTful APIs, Clean Architecture.</p>
           </div>
-
           <div class="skill-card glass">
             <div class="skill-icon"><i class="fas fa-database"></i></div>
             <h3>Core Engineering</h3>
-            <p>Java, C#, C++, OOP, Data Structures, Algorithms.</p>
+            <p>Java, Python, OOP, Data Structures, Algorithms, MySQL.</p>
           </div>
-
           <div class="skill-card glass">
             <div class="skill-icon"><i class="fas fa-tools"></i></div>
             <h3>Design & Tools</h3>
-            <p>Figma (Prototyping), Git/GitHub, Firebase, RESTful APIs.</p>
+            <p>Figma, Git/GitHub, Odoo ERP, UI/UX Prototyping.</p>
           </div>
         </div>
       </section>
 
+      <!-- Projects Section (Cleaned & Updated) -->
       <section id="projects" data-aos="fade-up" class="container">
         <h2 class="section-title">Featured Work</h2>
         <div class="projects-grid">
           <div class="project-item glass">
             <div class="project-header">
-              <i class="fab fa-java"></i>
-              <div class="project-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-              </div>
-            </div>
-            <h3>Bank Management System</h3>
-            <p>
-              A comprehensive system for processing banking operations and
-              accounts, built with Java with a focus on core logic and security.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Java</span>
-              <span class="tag">OOP</span>
-            </div>
-          </div>
-
-          <div class="project-item glass">
-            <div class="project-header">
-              <i class="fas fa-mobile-alt"></i>
-              <div class="project-links">
-                <a href="#"><i class="fas fa-external-link-alt"></i></a>
-              </div>
-            </div>
-            <h3>Awqaf Management System</h3>
-            <p>
-              An advanced web platform for managing and organizing endowments,
-              developed using Flutter Web for a seamless and modern user
-              experience.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Flutter Web</span>
-              <span class="tag">Dart</span>
-            </div>
-          </div>
-
-          <div class="project-item glass">
-            <div class="project-header">
-              <i class="fab fa-figma"></i>
-              <div class="project-links">
-                <a href="#"><i class="fas fa-eye"></i></a>
-              </div>
-            </div>
-            <h3>Pioneers Clinic UI/UX</h3>
-            <p>
-              Professional user interface design for a consulting clinic system,
-              focusing on high-fidelity prototyping and user-centric data flow.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Figma</span>
-              <span class="tag">UI/UX</span>
-            </div>
-          </div>
-
-          <div class="project-item glass">
-            <div class="project-header">
               <i class="fab fa-react"></i>
               <div class="project-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/nouralkassar" target="_blank"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a href="#" target="_blank"
+                  ><i class="fas fa-external-link-alt"></i
+                ></a>
               </div>
             </div>
-            <h3>Complaints Management System</h3>
+            <h3>Al-Rawad Consulting Clinic</h3>
             <p>
-              An electronic platform for receiving and managing complaints,
-              built using React.js, HTML5, CSS3, and JavaScript for high
-              responsiveness.
+              Spearheaded the frontend development for a fully automated clinic
+              management system. Architected a clean data-fetching pipeline:
+              React Query Hooks → Feature Manager Hooks → Constants & Mappers →
+              Reusable Components → Page UI.
             </p>
             <div class="project-tags">
               <span class="tag">React.js</span>
-              <span class="tag">Frontend Stack</span>
+              <span class="tag">React Query</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">Material UI</span>
+            </div>
+          </div>
+
+          <div class="project-item glass">
+            <div class="project-header">
+              <i class="fas fa-search"></i>
+              <div class="project-links">
+                <a href="https://github.com/nouralkassar" target="_blank"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </div>
+            </div>
+            <h3>Information Retrieval System</h3>
+            <p>
+              Developed a search engine using BEIR/Quora dataset with TF-IDF,
+              BM25, and semantic embeddings. Implemented preprocessing, inverted
+              indexing, and a Streamlit-based search UI with K-Means clustering.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">NLP</span>
+              <span class="tag">Streamlit</span>
+            </div>
+          </div>
+
+          <div class="project-item glass">
+            <div class="project-header">
+              <i class="fas fa-hospital"></i>
+              <div class="project-links">
+                <a href="https://github.com/nouralkassar" target="_blank"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </div>
+            </div>
+            <h3>Project Pulse - Smart Hospital ERP</h3>
+            <p>
+              Developed a custom Odoo ERP module to support emergency medical
+              triage. Designed role-based access rights and configured inventory
+              workflows for mobile medical units.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Odoo ERP</span>
+              <span class="tag">Python</span>
+              <span class="tag">XML</span>
+            </div>
+          </div>
+
+          <div class="project-item glass">
+            <div class="project-header">
+              <i class="fas fa-mosque"></i>
+              <div class="project-links">
+                <a href="https://github.com/nouralkassar" target="_blank"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a href="#" target="_blank"
+                  ><i class="fas fa-external-link-alt"></i
+                ></a>
+              </div>
+            </div>
+            <h3>Prayer Times Web App</h3>
+            <p>
+              Built a responsive React.js interface integrating RESTful APIs for
+              real-time prayer times data fetching, state management, and
+              dynamic display.
+            </p>
+            <div class="project-tags">
+              <span class="tag">React.js</span>
+              <span class="tag">RESTful APIs</span>
+              <span class="tag">JavaScript</span>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- Education Section (Cleaned & Updated) -->
       <section id="experience" data-aos="fade-up" class="container">
-        <h2 class="section-title">Education & Academic Path</h2>
+        <h2 class="section-title">Education</h2>
         <div class="education-timeline">
           <div class="timeline-item glass">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <span class="edu-date">2021 – 2026 (Expected Graduation)</span>
+              <span class="edu-date">2021 – 2026</span>
               <h3>Bachelor of Science in Information Technology Engineering</h3>
               <h4 class="university">Damascus University</h4>
               <p class="specialization">
                 <strong>Specialization:</strong> Software Engineering
               </p>
-
               <div class="academic-details">
                 <h5>Key Coursework:</h5>
                 <ul class="course-list">
+                  <li>Web Development & Software Architecture</li>
                   <li>Data Structures and Algorithms</li>
                   <li>Object-Oriented Programming (OOP)</li>
-                  <li>Software Architecture & DBMS</li>
-                  <li>Mobile Application Development</li>
+                  <li>Database Management Systems (DBMS)</li>
                 </ul>
-              </div>
-
-              <div class="current-status">
-                <span class="status-badge"
-                  >Current Status: 5th-year student (Senior Year)</span
-                >
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- Contact Section -->
       <section id="contact" data-aos="fade-up" class="container">
         <div class="contact-wrapper">
           <div class="contact-info">
@@ -299,7 +338,6 @@
               opportunities to be part of your visions. Feel free to reach out
               through any of the following platforms.
             </p>
-
             <div class="contact-details">
               <div class="contact-item">
                 <i class="fas fa-envelope"></i>
@@ -308,9 +346,16 @@
                   <p>nouralkassar19@gmail.com</p>
                 </div>
               </div>
-              <a href="tel:+963960078199" class="contact-item">
-                <i class="fas fa-phone"></i>
-                <p>+963 960078199</p>
+              <a
+                href="https://wa.me/963960078199"
+                target="_blank"
+                class="contact-item"
+              >
+                <i class="fab fa-whatsapp"></i>
+                <div>
+                  <span>WhatsApp Me</span>
+                  <p>+963 960 078 199</p>
+                </div>
               </a>
               <div class="contact-item">
                 <i class="fas fa-map-marker-alt"></i>
@@ -334,7 +379,7 @@
                 <span>GitHub</span>
               </a>
               <a
-                href="https://www.linkedin.com/in/nour-alkassar-b6256135a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                href="https://www.linkedin.com/in/nour-alkassar-b6256135a"
                 target="_blank"
                 class="social-box"
               >
@@ -349,39 +394,74 @@
           </div>
         </div>
       </section>
-
-      <footer>
-        <div class="footer-content container">
-          <div class="footer-logo">
-            <span class="logo">Nour Alkassar</span>
-          </div>
-          <p class="copyright">
-            &copy; 2026 Designed and Built by <strong>Nour Alkassar</strong>.
-            All rights reserved.
-          </p>
-          <div class="footer-socials">
-            <a href="https://github.com/nouralkassar" target="_blank"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/nour-alkassar-b6256135a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-              target="_blank"
-              ><i class="fab fa-linkedin-in"></i
-            ></a>
-            <a href="mailto:nouralkassar19@gmail.com" target="_blank"
-              ><i class="fas fa-envelope"></i
-            ></a>
-          </div>
-        </div>
-      </footer>
     </main>
+
+    <footer>
+      <div class="footer-content container">
+        <div class="footer-logo">
+          <span class="logo">Nour Alkassar</span>
+        </div>
+        <p class="copyright">
+          &copy; 2024 Designed and Built by <strong>Nour Alkassar</strong>. All
+          rights reserved.
+        </p>
+        <div class="footer-socials">
+          <a href="https://github.com/nouralkassar" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/nour-alkassar-b6256135a"
+            target="_blank"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a href="mailto:nouralkassar19@gmail.com" target="_blank"
+            ><i class="fas fa-envelope"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+      // 1. تفعيل مكتبة الحركات AOS
       AOS.init({
-        duration: 2000, // سرعة الحركة بالملي ثانية
-        once: true, // الحركة تحدث مرة واحدة فقط عند النزول
+        duration: 1000,
+        once: true,
+        offset: 100,
       });
+
+      // 2. منطق تبديل الوضع (Theme Toggle Logic)
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      const themeIcon = themeToggleBtn.querySelector("i");
+      const htmlElement = document.documentElement;
+
+      // التحقق من الوضع المحفوظ مسبقاً، أو الافتراضي (داكن)
+      const savedTheme = localStorage.getItem("theme") || "dark";
+      htmlElement.setAttribute("data-theme", savedTheme);
+      updateIcon(savedTheme);
+
+      // عند الضغط على الزر
+      themeToggleBtn.addEventListener("click", () => {
+        const currentTheme = htmlElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        htmlElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme); // حفظ اختيار المستخدم
+        updateIcon(newTheme);
+      });
+
+      // 3. دالة تغيير الأيقونة (المنطق المعكوس الصحيح)
+      function updateIcon(theme) {
+        if (theme === "light") {
+          // إذا كان الموقع نهاري، اعرض أيقونة القمر (للتحويل لليلي)
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+        } else {
+          // إذا كان الموقع ليلي، اعرض أيقونة الشمس (للتحويل للنهاري)
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+        }
+      }
     </script>
   </body>
 </html>
