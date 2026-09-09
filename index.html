@@ -48,7 +48,13 @@
     <header>
       <nav>
         <div class="logo">Nour Alkassar</div>
-        <ul class="nav-links">
+
+        <!-- زر الهمبرغر للموبايل -->
+        <button class="hamburger-menu" id="hamburger-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-links" id="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
@@ -57,7 +63,6 @@
         </ul>
 
         <div style="display: flex; align-items: center; gap: 15px">
-          <!-- زر تبديل الوضع -->
           <button
             id="theme-toggle"
             class="theme-toggle-btn"
@@ -65,7 +70,6 @@
           >
             <i class="fas fa-moon"></i>
           </button>
-
           <a
             href="https://drive.google.com/file/d/1IEuf3MTJ1jE2aBARjvfI0K0ixZmyvDsb/view?usp=sharing"
             class="btn-cv"
@@ -462,6 +466,20 @@
           themeIcon.classList.add("fa-sun");
         }
       }
+      // قائمة الهمبرغر للموبايل
+      const hamburgerBtn = document.getElementById("hamburger-btn");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburgerBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // إغلاق القائمة عند الضغط على أي رابط
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
     </script>
   </body>
 </html>
