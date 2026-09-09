@@ -825,46 +825,36 @@ footer {
 }
 
 /* =========================================
-   15. التصميم المتجاوب (Responsive Design)
+   15. التصميم المتجاوب (Responsive Design) - النسخة النهائية
    ========================================= */
 
-/* للأجهزة اللوحية والموبايل الكبير */
 @media (max-width: 968px) {
     .hero-content {
         flex-direction: column-reverse;
         text-align: center;
         gap: 30px;
     }
-    .hero-text p {
-        margin: 0 auto 30px;
-        max-width: 100%;
-    }
-    .hero-btns {
-        justify-content: center;
-    }
+    .hero-text p { margin: 0 auto 30px; max-width: 100%; }
+    .hero-btns { justify-content: center; }
     
-    .nav-links {
-        display: none; /* إخفاء القائمة العادية */
-    }
+    .nav-links { display: none; }
+    .hamburger-menu { display: block; }
     
-    .hamburger-menu {
-        display: block; /* إظهار زر الهمبرغر */
-    }
-    
-    /* إظهار القائمة عند تفعيلها */
     .nav-links.active {
         display: flex;
         flex-direction: column;
-        position: absolute;
-        top: 100%;
+        position: fixed; /* تغيير إلى fixed لضمان الظهور فوق كل شيء */
+        top: 70px; /* نفس ارتفاع الهيدر */
         left: 0;
         width: 100%;
         background: var(--header-bg);
-        padding: 20px;
+        padding: 30px 0;
         border-bottom: 1px solid var(--border);
-        backdrop-filter: blur(15px);
+        backdrop-filter: blur(20px);
         gap: 20px;
         text-align: center;
+        z-index: 999;
+        animation: slideDown 0.3s ease forwards;
     }
     
     .hero-text h1 { font-size: 3rem; }
@@ -872,8 +862,42 @@ footer {
     .glow-circle { width: 340px; height: 340px; }
 }
 
-/* للموبايل العادي */
 @media (max-width: 768px) {
+    /* إصلاح الهيدر لمنع التزاحم */
+    header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; }
+    nav { padding: 15px 5%; min-height: 70px; flex-wrap: nowrap; }
+    .logo { font-size: 1.6rem; white-space: nowrap; }
+    
+    .hamburger-menu {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--accent);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 1002;
+        -webkit-tap-highlight-color: transparent; /* إزالة وميض النقر في الموبايل */
+    }
+
+    /* حاوية الأزرار الجانبية لضمان عدم انكماشها */
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 1002;
+    }
+
+    .theme-toggle-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+        flex-shrink: 0; /* منع الزر من الانكماش */
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-cv { padding: 8px 12px; font-size: 0.8rem; white-space: nowrap; }
+
     .container { padding: 60px 5%; }
     .section-title { font-size: 1.8rem; margin-bottom: 30px; }
     
@@ -884,10 +908,7 @@ footer {
     .image-wrapper { width: 250px; height: 250px; }
     .glow-circle { width: 290px; height: 290px; }
     
-    /* إصلاح الشبكات لتظهر في عمود واحد على الموبايل */
-    .projects-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr; }
-    
+    .projects-grid, .skills-grid { grid-template-columns: 1fr; }
     .contact-wrapper { grid-template-columns: 1fr; gap: 30px; }
     
     .footer-content { flex-direction: column; text-align: center; }
@@ -898,7 +919,6 @@ footer {
     .slider .slide i { font-size: 1.5rem; }
 }
 
-/* للموبايل الصغير جداً */
 @media (max-width: 480px) {
     .hero-text h1 { font-size: 2rem; }
     .hero-text h3 { font-size: 1rem; }
@@ -907,11 +927,16 @@ footer {
     .image-wrapper { width: 200px; height: 200px; }
     .glow-circle { width: 240px; height: 240px; }
     
-    .logo { font-size: 2rem; }
-    
-    .btn-cv { padding: 8px 16px; font-size: 0.85rem; }
-    .theme-toggle-btn { width: 38px; height: 38px; font-size: 1rem; }
+    .logo { font-size: 1.4rem; }
     
     .hero-btns { flex-direction: column; width: 100%; }
     .btn-main, .btn-sub { width: 100%; text-align: center; }
+    
+    /* إخفاء زر CV في الشاشات الصغيرة جداً لإعطاء مساحة لزر الإضاءة */
+    .btn-cv { display: none; }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

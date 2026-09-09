@@ -427,58 +427,75 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      // 1. تفعيل مكتبة الحركات AOS
-      AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100,
-      });
+      // ضمان تحميل الكود بعد اكتمال بناء الصفحة (مهم جداً للموبايل)
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1. تفعيل مكتبة الحركات AOS
+        AOS.init({ duration: 1000, once: true, offset: 100 });
 
-      // 2. منطق تبديل الوضع (Theme Toggle Logic)
-      const themeToggleBtn = document.getElementById("theme-toggle");
-      const themeIcon = themeToggleBtn.querySelector("i");
-      const htmlElement = document.documentElement;
+        // 2. منطق تبديل الوضع (Theme Toggle Logic)
+        const themeToggleBtn = document.getElementById("theme-toggle");
+        const themeIcon = themeToggleBtn
+          ? themeToggleBtn.querySelector("i")
+          : null;
+        const htmlElement = document.documentElement;
 
-      // التحقق من الوضع المحفوظ مسبقاً، أو الافتراضي (داكن)
-      const savedTheme = localStorage.getItem("theme") || "dark";
-      htmlElement.setAttribute("data-theme", savedTheme);
-      updateIcon(savedTheme);
+        if (themeToggleBtn && themeIcon) {
+          const savedTheme = localStorage.getItem("theme") || "dark";
+          htmlElement.setAttribute("data-theme", savedTheme);
 
-      // عند الضغط على الزر
-      themeToggleBtn.addEventListener("click", () => {
-        const currentTheme = htmlElement.getAttribute("data-theme");
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
+          function updateIcon(theme) {
+            if (theme === "light") {
+              themeIcon.classList.remove("fa-sun");
+              themeIcon.classList.add("fa-moon");
+            } else {
+              themeIcon.classList.remove("fa-moon");
+              themeIcon.classList.add("fa-sun");
+            }
+          }
 
-        htmlElement.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme); // حفظ اختيار المستخدم
-        updateIcon(newTheme);
-      });
+          updateIcon(savedTheme);
 
-      // 3. دالة تغيير الأيقونة (المنطق المعكوس الصحيح)
-      function updateIcon(theme) {
-        if (theme === "light") {
-          // إذا كان الموقع نهاري، اعرض أيقونة القمر (للتحويل لليلي)
-          themeIcon.classList.remove("fa-sun");
-          themeIcon.classList.add("fa-moon");
-        } else {
-          // إذا كان الموقع ليلي، اعرض أيقونة الشمس (للتحويل للنهاري)
-          themeIcon.classList.remove("fa-moon");
-          themeIcon.classList.add("fa-sun");
+          themeToggleBtn.addEventListener("click", (e) => {
+            e.preventDefault(); // منع أي سلوك افتراضي قد يتعارض مع اللمس
+            const currentTheme = htmlElement.getAttribute("data-theme");
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+            htmlElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+            updateIcon(newTheme);
+          });
         }
-      }
-      // قائمة الهمبرغر للموبايل
-      const hamburgerBtn = document.getElementById("hamburger-btn");
-      const navLinks = document.getElementById("nav-links");
 
-      hamburgerBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
+        // 3. قائمة الهمبرغر للموبايل
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const navLinks = document.getElementById("nav-links");
 
-      // إغلاق القائمة عند الضغط على أي رابط
-      document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("active");
-        });
+        if (hamburgerBtn && navLinks) {
+          hamburgerBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            navLinks.classList.toggle("active");
+
+            // تغيير أيقونة الهمبرغر إلى X عند الفتح
+            const icon = hamburgerBtn.querySelector("i");
+            if (navLinks.classList.contains("active")) {
+              icon.classList.remove("fa-bars");
+              icon.classList.add("fa-times");
+            } else {
+              icon.classList.remove("fa-times");
+              icon.classList.add("fa-bars");
+            }
+          });
+
+          // إغلاق القائمة عند الضغط على أي رابط
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            link.addEventListener("click", () => {
+              navLinks.classList.remove("active");
+              const icon = hamburgerBtn.querySelector("i");
+              icon.classList.remove("fa-times");
+              icon.classList.add("fa-bars");
+            });
+          });
+        }
       });
     </script>
   </body>
