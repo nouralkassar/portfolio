@@ -51,15 +51,36 @@ body {
 /* =========================================
    3. شريط التنقل (Navbar & Header)
    ========================================= */
+/* =========================================
+   3. شريط التنقل (Navbar & Header)
+   ========================================= */
 header {
-    position: fixed;
-    top: 0;
+    /* position: fixed;  <-- أضيفي هذا التعليق لحذف التثبيت */
+    position: relative;  /* <-- أضيفي هذا السطر */
+    top: auto;  /* <-- أضيفي هذا السطر */
     width: 100%;
     z-index: 1000;
     background: var(--header-bg);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--border);
     transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+nav {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* تعديل قسم الهيرو ليتناسب مع الهيدر غير الثابت */
+.hero {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: 50px 10%;  /* تغيير من 0 10% إلى 50px 10% */
 }
 
 nav {
@@ -215,7 +236,6 @@ nav {
     max-width: 500px;
 }
 
-/* صورة الهيرو والتوهج */
 .hero-image-container {
     position: relative;
 }
@@ -249,9 +269,6 @@ nav {
     animation: pulse 4s infinite ease-in-out;
 }
 
-/* =========================================
-   5. الأزرار (Buttons)
-   ========================================= */
 .hero-btns {
     display: flex;
     gap: 20px;
@@ -294,9 +311,7 @@ nav {
     background-color: var(--glass);
 }
 
-/* =========================================
-   6. التخطيط العام والعناوين (Layout & Typography)
-   ========================================= */
+
 .container {
     padding: 100px 10%;
 }
@@ -338,9 +353,6 @@ nav {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* =========================================
-   8. قسم التعليم (Education Timeline)
-   ========================================= */
 .education-timeline {
     position: relative;
     max-width: 800px;
@@ -417,9 +429,7 @@ nav {
     margin-top: 20px;
 }
 
-/* =========================================
-   9. شبكة المشاريع (Projects Grid)
-   ========================================= */
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -491,9 +501,6 @@ nav {
     border: 1px solid var(--border);
 }
 
-/* =========================================
-   10. شبكة المهارات (Skills Grid)
-   ========================================= */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -546,9 +553,6 @@ nav {
     line-height: 1.6;
 }
 
-/* =========================================
-   11. قسم التواصل (Contact Section)
-   ========================================= */
 .contact-wrapper {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
@@ -658,9 +662,6 @@ nav {
     grid-column: span 2;
 }
 
-/* =========================================
-   12. التذييل (Footer)
-   ========================================= */
 footer {
     width: 100%;
     padding: 40px 0;
@@ -714,9 +715,7 @@ footer {
     transform: translateY(-3px);
 }
 
-/* =========================================
-   13. الشريط المتحرك (Tech Slider)
-   ========================================= */
+
 .tech-description {
     text-align: center;
     max-width: 800px;
@@ -780,7 +779,6 @@ footer {
     color: var(--accent);
 }
 
-/* ألوان الأيقونات الأصلية */
 .slide.html i { color: #E34F26; }
 .slide.css i { color: #1572B6; }
 .slide.js i { color: #F7DF1E; }
@@ -790,7 +788,6 @@ footer {
 .slide.java i { color: #007396; }
 .slide.tailwind i { color: #06B6D4; }
 
-/* تدرج الأطراف للشريط المتحرك */
 .slider::before, .slider::after {
     background: linear-gradient(to right, var(--bg) 0%, transparent 100%);
     content: "";
@@ -811,9 +808,6 @@ footer {
     top: 0;
 }
 
-/* =========================================
-   14. الحركات (Animations)
-   ========================================= */
 @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(-250px * 8)); }
@@ -824,9 +818,6 @@ footer {
     50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.15); }
 }
 
-/* =========================================
-   15. التصميم المتجاوب (Responsive Design) - النسخة النهائية
-   ========================================= */
 
 @media (max-width: 968px) {
     .hero-content {
@@ -863,9 +854,10 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* إصلاح الهيدر لمنع التزاحم */
-    header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; }
-    nav { padding: 15px 5%; min-height: 70px; flex-wrap: nowrap; }
+ header {
+        position: relative;
+        width: 100%;
+    }    nav { padding: 15px 5%; min-height: 70px; flex-wrap: nowrap; }
     .logo { font-size: 1.6rem; white-space: nowrap; }
     
     .hamburger-menu {
@@ -877,10 +869,9 @@ footer {
         cursor: pointer;
         padding: 5px;
         z-index: 1002;
-        -webkit-tap-highlight-color: transparent; /* إزالة وميض النقر في الموبايل */
+        -webkit-tap-highlight-color: transparent;
     }
 
-    /* حاوية الأزرار الجانبية لضمان عدم انكماشها */
     .header-actions {
         display: flex;
         align-items: center;
@@ -892,7 +883,7 @@ footer {
         width: 42px;
         height: 42px;
         font-size: 1.2rem;
-        flex-shrink: 0; /* منع الزر من الانكماش */
+        flex-shrink: 0; 
         -webkit-tap-highlight-color: transparent;
     }
 
@@ -932,7 +923,6 @@ footer {
     .hero-btns { flex-direction: column; width: 100%; }
     .btn-main, .btn-sub { width: 100%; text-align: center; }
     
-    /* إخفاء زر CV في الشاشات الصغيرة جداً لإعطاء مساحة لزر الإضاءة */
     .btn-cv { display: none; }
 }
 
